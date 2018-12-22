@@ -1,0 +1,4 @@
+- src: https://github.com/kluisi/say-hello.git
+  scm: git
+  version: "master"
+  name: "say-hello"

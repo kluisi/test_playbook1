@@ -1,9 +1,0 @@
----
-- name: Call the hello1 role
-  include_role:
-    name: hello1
-  vars:
-    hello1_message: "{{ say_hello_role1_item }}"
-  with_items: "{{ inputs }}"
-  loop_control:
-    loop_var: say_hello_role1_item
