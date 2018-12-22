@@ -1,0 +1,4 @@
+---
+- name: Print hello1 message
+  debug:
+    var: hello1_message

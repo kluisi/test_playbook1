@@ -1,0 +1,7 @@
+---
+- name: Call the hello2 role
+  include_role:
+    name: hello2
+  vars:
+    hello2_name: "{{ inputs.name }}"
+    hello2_message: "{{ inputs.msg }}"

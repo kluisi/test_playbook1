@@ -1,0 +1,10 @@
+---
+- name: Call the hello3 role
+  include_role:
+    name: hello3
+  vars:
+    hello3_name: "{{ say_hello_role3_item.name }}"
+    hello3_msgs: "{{ say_hello_role3_item.msgs }}"
+  with_items: "{{ inputs }}"
+  loop_control:
+    loop_var: say_hello_role3_item

@@ -1,0 +1,43 @@
+---
+- hosts: my_cpu
+  gather_facts: False
+  vars:
+    test:
+      role1:
+        - role1 says hello
+        - world
+      role2:
+        name: role2
+        msg: hello_world from role2!
+      role3:
+        - name: role3_1
+          msgs:
+            - hello world
+            - from role 3_1
+        - name: role3_2
+          msgs:
+            - hi again
+            - from role 3_2
+  tasks:
+    - name: "Print test"
+      debug:
+        var: test
+
+    - name: Print input file
+      debug:
+        var: test_dict1
+      loop: "{{ test | dict2items }}"
+      loop_control:
+        loop_var: test_dict1
+        label: "{{ test_dict1.key }}"
+
+    - name: "Say hello by roles"
+      include_role:
+        name: say-hello
+        tasks_from: "{{ test_dict2.key }}"
+      vars:
+        inputs: "{{ test_dict2.value }}"
+      loop: "{{ test | dict2items }}"
+      loop_control:
+        loop_var: test_dict2
+        label: "{{ test_dict2.key }}"

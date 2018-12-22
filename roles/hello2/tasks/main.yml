@@ -1,0 +1,4 @@
+---
+- name: Print hello2 message
+  debug:
+    msg: "The hello2 role named {{ hello2_name }} says {{ hello2_message }}"

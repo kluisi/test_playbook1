@@ -1,0 +1,20 @@
+---
+- name: Print hello3 name
+  debug:
+    var: hello3_name
+
+- name: Print hello3 messages
+  debug:
+    var: hello3_item
+  with_items: "{{ hello3_msgs}}"
+  loop_control:
+    loop_var: hello3_item
+#      role3:
+#        - name: role3_1
+#          msgs:
+#            - hello world
+#            - from role 3_1
+#        - name: role3_2
+#          msgs:
+#            - hi again
+#            - from role 3_2
